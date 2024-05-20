@@ -104,7 +104,7 @@
             }).addTo(map);
             var marker = L.marker([position.coords.latitude, position.coords.longitude]).addTo(map);
             // Area circle kantor
-            var circle = L.circle([-6.235153932884423, 106.79924583533126], {
+            var circle = L.circle([-6.2432482302401615, 106.7513356035836], {
                 color: 'red',
                 fillColor: '#f03',
                 fillOpacity: 0.5,

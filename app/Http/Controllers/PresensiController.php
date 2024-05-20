@@ -27,8 +27,8 @@ class PresensiController extends Controller
         $tgl_presensi = date("Y-m-d");
         $jam = date("H:i:s");
         // Setting radius kantor
-        $latitudekantor = -6.235153932884423;
-        $longitudekantor = 106.79924583533126;
+        $latitudekantor = -6.2432482302401615;
+        $longitudekantor = 106.7513356035836;
         $lokasi = $request->lokasi;
 
         // Memisahkan array latitude & longitude user
@@ -40,10 +40,16 @@ class PresensiController extends Controller
         $jarak = $this->distance($latitudekantor, $longitudekantor, $latitudeuser, $longitudeuser);
         $radius = round($jarak["meters"]);
 
+        $cek = DB::table('presensi')->where('tgl_presensi', $tgl_presensi)->where('nik', $nik)->count();
 
+        if ($cek > 0) {
+            $ket = "out";
+        } else {
+            $ket = "in";
+        }
         $image = $request->image;
         $folderPath = "public/uploads/absensi/";
-        $formatName = $nik . "-" . $tgl_presensi;
+        $formatName = $nik . "-" . $tgl_presensi . "_" . $ket;
 
         // Mengubah image menjadi base64
         $image_parts = explode(";base64", $image);
@@ -51,8 +57,6 @@ class PresensiController extends Controller
         $fileName = $formatName . ".png";
         $file = $folderPath . $fileName;
 
-        // Mengupdate data ketika sudah absen masuk untuk mengisi absen pulang
-        $cek = DB::table('presensi')->where('tgl_presensi', $tgl_presensi)->where('nik', $nik)->count();
         // Validasi radius user ketika akan absen
         if ($radius > 20) {
             echo "error|Maaf Anda Diluar Radius, Jarak Anda " . $radius . " meter dari Kantor|radius";
