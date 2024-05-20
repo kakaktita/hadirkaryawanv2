@@ -63,11 +63,19 @@
             <div id="map"></div>
         </div>
     </div>
+
+    {{-- Menambahkan audio ketika absen --}}
+    <audio id="notifikasi_in" src="{{ asset('assets/sound/notifikasi_in.mp3') }}" type="audio/mpeg">
+    </audio>
+    <audio id="notifikasi_out" src="{{ asset('assets/sound/notifikasi_out.mp3') }}" type="audio/mpeg">
+    </audio>
 @endsection
 
 @push('myscript')
     {{-- Script menampilkan webcam --}}
     <script>
+        var notifikasi_in = document.getElementById('notifikasi_in');
+        var notifikasi_out = document.getElementById('notifikasi_out');
         Webcam.set({
             height: 480,
             width: 600,
@@ -124,6 +132,11 @@
                 success: function(respond) {
                     var status = respond.split("|");
                     if (status[0] == "success") {
+                        if (status[2] == "in") {
+                            notifikasi_in.play();
+                        } else {
+                            notifikasi_out.play();
+                        }
                         Swal.fire({
                             title: 'Berhasil!',
                             text: status[1],
