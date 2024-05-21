@@ -71,7 +71,7 @@
                                         @php
                                             $path = Storage::url('public/uploads/absensi/' . $presensihariini->foto_in);
                                         @endphp
-                                        <img src="{{ url($path) }}" alt="" class="imaged w64">
+                                        <img src="{{ url($path) }}" alt="" class="imaged w48">
                                     @else
                                         <ion-icon name="camera"></ion-icon>
                                     @endif
@@ -95,7 +95,7 @@
                                                 'public/uploads/absensi/' . $presensihariini->foto_out,
                                             );
                                         @endphp
-                                        <img src="{{ url($path) }}" alt="" class="imaged w64">
+                                        <img src="{{ url($path) }}" alt="" class="imaged w48">
                                     @else
                                         <ion-icon name="camera"></ion-icon>
                                     @endif
@@ -111,7 +111,57 @@
             </div>
         </div>
 
+        <div id="rekappresensi">
+            <h5>Rekap Presensi Bulan {{ $namabulan[$bulanini] }} Tahun {{ $tahunini }}</h5>
+            <div class="row">
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body text-center" style="padding: 12px 12px !important; line-height: 0.8rem;">
+                            <span class="badge bg-danger"
+                                style="position:absolute; top: 3px; right: 5px; font-size: 0.6rem; z-index:999;">10</span>
+                            <ion-icon name="accessibility-outline" style="font-size: 1.5rem;"
+                                class="text-primary"></ion-icon>
+                            <br>
+                            <span style="font-size: 0.8rem; font-weight: 500;">Hadir</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body text-center" style="padding: 12px 12px !important; line-height: 0.8rem;">
+                            <span class="badge bg-danger"
+                                style="position:absolute; top: 3px; right: 5px; font-size: 0.6rem; z-index:999;">10</span>
+                            <ion-icon name="newspaper-outline" style="font-size: 1.5rem;" class="text-success"></ion-icon>
+                            <br>
+                            <span style="font-size: 0.8rem; font-weight: 500;">Izin</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body text-center" style="padding: 12px 12px !important; line-height: 0.8rem;">
+                            <span class="badge bg-danger"
+                                style="position:absolute; top: 3px; right: 5px; font-size: 0.6rem; z-index:999;">10</span>
+                            <ion-icon name="medkit-outline" style="font-size: 1.5rem;" class="text-warning"></ion-icon>
+                            <br>
+                            <span style="font-size: 0.8rem; font-weight: 500;">Sakit</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body text-center" style="padding: 12px 12px !important; line-height: 0.8rem;">
+                            <span class="badge bg-danger"
+                                style="position:absolute; top: 3px; right: 5px; font-size: 0.6rem; z-index:999;">10</span>
+                            <ion-icon name="alarm-outline" style="font-size: 1.5rem;" class="text-danger"></ion-icon>
+                            <br>
+                            <span style="font-size: 0.8rem; font-weight: 500;">Telat</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+        </div>
         <div class="presencetab mt-2">
             <div class="tab-pane fade show active" id="pilled" role="tabpanel">
                 <ul class="nav nav-tabs style1" role="tablist">
@@ -137,7 +187,7 @@
                             <li>
                                 <div class="item">
                                     <div class="icon-box bg-primary">
-                                        <img src="{{ url($path) }}" alt="" class="imaged w32">
+                                        <img src="{{ url($path) }}" alt="" class="imaged w48">
                                     </div>
                                     <div class="in">
                                         <div>{{ date('d-m-Y', strtotime($d->tgl_presensi)) }}</div>

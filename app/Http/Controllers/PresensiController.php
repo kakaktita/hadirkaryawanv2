@@ -27,8 +27,8 @@ class PresensiController extends Controller
         $tgl_presensi = date("Y-m-d");
         $jam = date("H:i:s");
         // Setting radius kantor
-        $latitudekantor = -6.2432482302401615;
-        $longitudekantor = 106.7513356035836;
+        $latitudekantor = -6.234985161069114;
+        $longitudekantor = 106.79919797294505;
         $lokasi = $request->lokasi;
 
         // Memisahkan array latitude & longitude user
