@@ -10,6 +10,7 @@
         <div class="pageTittle">Histori Presensi</div>
         <div class="right"></div>
     </div>
+    {{-- App Header --}}
 @endsection
 @section('content')
     <div class="row" style="margin-top: 70px;">

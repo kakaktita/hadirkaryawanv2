@@ -27,6 +27,11 @@ Route::middleware(['auth:karyawan'])->group(function () {
     Route::post('/presensi/{nik}/updateprofile', [PresensiController::class, 'updateprofile']);
 
     // Histori
-    Route::get('/presensi/histori', [PresensiController::class, 'histori']);
-    Route::post('/gethistori', [PresensiController::class, 'gethistori']);
+    Route::get('/presensi/histori', [PresensiController::class, 'histori'])->name('presensi.histori');
+    Route::post('/gethistori', [PresensiController::class, 'gethistori'])->name('presensi.gethistori');
+
+    // Izin
+    Route::get('/presensi/izin', [PresensiController::class, 'izin'])->name('presensi.izin');
+    Route::get('/presensi/buatizin', [PresensiController::class, 'buatizin'])->name('presensi.buatizin');
+    Route::post('/presensi/storeizin', [PresensiController::class, 'storeizin']);
 });
