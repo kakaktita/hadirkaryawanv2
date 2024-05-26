@@ -19,6 +19,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.26/webcam.min.js"></script>
 {{-- Sweet Alert JS --}}
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+{{-- Materialize datepicker --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 <!-- Base Js File -->
 <script src="{{ asset('assets/js/base.js') }}"></script>
 
@@ -67,4 +69,5 @@
         ];
     }); // end am4core.ready()
 </script>
+
 @stack('myscript')
