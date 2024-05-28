@@ -59,4 +59,9 @@ class DashboardController extends Controller
             'rekapizin'
         ));
     }
+
+    public function dashboardadmin()
+    {
+        return view('dashboard.dashboardadmin');
+    }
 }
