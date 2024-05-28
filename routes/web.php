@@ -35,3 +35,11 @@ Route::middleware(['auth:karyawan'])->group(function () {
     Route::get('/presensi/buatizin', [PresensiController::class, 'buatizin'])->name('presensi.buatizin');
     Route::post('/presensi/storeizin', [PresensiController::class, 'storeizin']);
 });
+
+Route::middleware(['guest:user'])->group(function () {
+    Route::get('/panel', function () {
+        return view('auth.loginadmin');
+    })->name('loginadmin');
+});
+
+Route::get('/dashboardadmin', [DashboardController::class, 'dashboardadmin'])->name('dashboardadmin');
